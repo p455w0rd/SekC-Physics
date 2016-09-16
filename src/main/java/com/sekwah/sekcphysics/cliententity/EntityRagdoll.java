@@ -28,7 +28,7 @@ public class EntityRagdoll extends Entity {
         // the actual entity instance will be used mostly for lighting and a reference,
         //  the entities position will follow the first point added to the skeleton.
 
-        //this.ignoreFrustumCheck = true;
+        this.ignoreFrustumCheck = true;
     }
 
     @SideOnly(Side.CLIENT)

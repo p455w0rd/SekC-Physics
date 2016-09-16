@@ -21,30 +21,32 @@ public class ClothRagdoll extends BaseRagdoll {
 
     public ClothRagdoll(){
         super(1.4f);
-        skeleton = new Skeleton();
+        this.skeleton = new Skeleton();
 
-        centerHeightOffset = 24;
+        this.centerHeightOffset = 24;
+
+        this.setPasses(10);
 
         // Top row (anchor points)
-        for(int x = 0; x < width; x++){
-            for(int y = 0; y < height; y++){
+        for(int x = 0; x < this.width; x++){
+            for(int y = 0; y < this.height; y++){
                 if(y == 0){
-                    points[x][y] = new AnchoredSkeletonPoint(x * spacing, -y * spacing, 0, false);
+                    this.points[x][y] = new AnchoredSkeletonPoint(x * spacing, -y * spacing, 0, false);
                 }
                 else{
-                    points[x][y] = new SkeletonPoint(x * spacing, -y * spacing, 0, false);
+                    this.points[x][y] = new SkeletonPoint(x * spacing, -y * spacing, 0, false);
                 }
-                skeleton.points.add(points[x][y]);
+                this.skeleton.points.add(points[x][y]);
             }
         }
 
-        for(int x = 0; x < width; x++){
-            for(int y = 0; y < height; y++){
-                if(x < width - 1){
-                    skeleton.constraints.add(new Constraint(points[x][y],points[x + 1][y]));
+        for(int x = 0; x < this.width; x++){
+            for(int y = 0; y < this.height; y++){
+                if(x < this.width - 1){
+                    this.skeleton.constraints.add(new Constraint(points[x][y],points[x + 1][y]));
                 }
                 if(y < height - 1){
-                    skeleton.constraints.add(new Constraint(points[x][y],points[x][y + 1]));
+                    this.skeleton.constraints.add(new Constraint(points[x][y],points[x][y + 1]));
                 }
             }
         }

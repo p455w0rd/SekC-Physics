@@ -2,7 +2,6 @@ package com.sekwah.sekcphysics.ragdoll.parts;
 
 import com.sekwah.sekcphysics.cliententity.EntityRagdoll;
 import com.sekwah.sekcphysics.ragdoll.PointD;
-import com.sekwah.sekcphysics.ragdoll.Ragdolls;
 import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
@@ -64,7 +63,7 @@ public class Skeleton {
         }
 
         // oldUpdate constraints
-        for(int i = 0; i <= Ragdolls.updateCount; i++){
+        for(int i = 0; i <= entity.ragdoll.getPasses(); i++){
             for(Constraint constraint: constraints){
                 constraint.calc(entity);
                 //point.movePoint(entity);

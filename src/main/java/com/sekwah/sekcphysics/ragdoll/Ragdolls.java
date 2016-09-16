@@ -12,12 +12,12 @@ public class Ragdolls {
     // add code to store a hashmap of all entities to ragdolls
 
     // Key is entity class and stores a ragdoll class
-    private static Map<Class, Class> entityToRagdollHashmap = new HashMap<Class, Class>();
+    private static Map<Class, Class<? extends BaseRagdoll>> entityToRagdollHashmap = new HashMap<Class, Class<? extends BaseRagdoll>>();
 
     // To get a list of ragdolls go through all the alive entities in the world and check for an instace of
     //public List currentRagdolls = new ArrayList();
 
-    public static int updateCount = 10;
+    public static int maxUpdateCount = 10;
 
     public static float gravity = 0.05F; // alter till it looks the best, also maybe add material values as mods use stuff like
 

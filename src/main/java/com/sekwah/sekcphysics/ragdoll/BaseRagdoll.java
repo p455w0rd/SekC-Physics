@@ -22,6 +22,8 @@ public class BaseRagdoll {
 
     public boolean trackersRegistered = false;
 
+    private int passes = 3;
+
 
     // Current skeleton position and shape
     public Skeleton skeleton;
@@ -49,17 +51,25 @@ public class BaseRagdoll {
         // the entity
     }
 
+    public int getPasses(){
+        return passes;
+    }
+
+    public void setPasses(int passes){
+        this.passes = passes;
+    }
+
     public void update(EntityRagdoll entity) {
         skeleton.update(entity);
 
     }
 
     public void shiftPos(double x, double y, double z) {
-        skeleton.shiftPos(x,y,z);
+        this.skeleton.shiftPos(x,y,z);
     }
 
     public void setStanceToEntity(EntityLivingBase entity) {
-        for(SkeletonPoint point : skeleton.points){
+        for(SkeletonPoint point : this.skeleton.points){
             // Finish rotation maths
             //newPoint.translate(new Vector3f((float) point.posX, (float) point.posY, (float) point.posZ));
             //SekCPhysics.logger.info(entity.rotationYaw);
@@ -70,6 +80,6 @@ public class BaseRagdoll {
     }
 
     public void initTrackers(ModelBase model) {
-        trackersRegistered = true;
+        this.trackersRegistered = true;
     }
 }
